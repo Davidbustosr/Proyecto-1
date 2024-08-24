@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 Algoritmo de Cálculo de Costo de Producto
-
 Este proyecto contiene un algoritmo desarrollado en PSeInt que permite calcular el costo final de un producto considerando varios factores como descuentos, IVA, cantidad, peso y costos de envío.
 
 Descripción del Proyecto
