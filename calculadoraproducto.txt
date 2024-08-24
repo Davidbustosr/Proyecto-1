@@ -1,0 +1,77 @@
+Algoritmo CalcularCostoProducto
+	
+    // Declarar variables
+    Definir precio_original Como Real
+    Definir porcentaje_descuento_cupon Como Real
+    Definir iva Como Real
+    Definir cantidad Como Entero
+    Definir peso_paquete Como Real
+    Definir costo_envio_base Como Real
+    Definir costo_envio_por_kg Como Real
+    Definir porcentaje_descuento_cantidad Como Real
+    Definir precio_descuento Como Real
+    Definir precio_con_iva Como Real
+    Definir precio_descuento_cantidad Como Real
+    Definir costo_envio Como Real
+    Definir costo_final Como Real
+    Definir cupon_dedescuento Como Entero
+    
+    // Inicializar el porcentaje de descuento del cupón en caso de no usar cupón
+    porcentaje_descuento_cupon <- 0
+	
+    // Leer datos de entrada
+    Escribir "Ingrese el precio original del producto:"
+    Leer precio_original
+	
+    Escribir "¿Posee cupón de descuento? (1 para sí, 0 para no):"
+    Leer cupon_dedescuento
+	
+    Si cupon_dedescuento = 1 Entonces
+        Escribir "Ingrese el porcentaje de descuento del cupón:"
+        Leer porcentaje_descuento_cupon
+    FinSi
+	
+    Escribir "Ingrese el IVA"
+    Leer iva
+    Escribir "Ingrese la cantidad de artículos comprados:"
+    Leer cantidad
+	
+    Escribir "Ingrese el peso del paquete (kg):"
+    Leer peso_paquete
+	
+    Escribir "Ingrese el costo base de envío:"
+    Leer costo_envio_base
+	
+    Escribir "Ingrese el costo de envío por kg:"
+    Leer costo_envio_por_kg
+	
+    Escribir "Ingrese el porcentaje de descuento por cantidad (porcentaje):" 
+    Leer porcentaje_descuento_cantidad
+	
+    // Calcular el precio con descuento del cupón
+    precio_descuento <- precio_original * (1 - porcentaje_descuento_cupon / 100)
+    
+    // Calcular el precio con IVA
+    precio_con_iva <- precio_descuento * (1 + iva / 100)
+    
+    // Aplicar descuento por cantidad
+    precio_descuento_cantidad <- precio_con_iva * (1 - porcentaje_descuento_cantidad / 100)
+    
+    // Calcular el costo de envío
+    costo_envio <- costo_envio_base + (costo_envio_por_kg * peso_paquete)
+    
+    // Calcular el costo final del producto
+    costo_final <- (precio_descuento_cantidad * cantidad) + costo_envio
+    
+    // Mostrar resultados
+    Escribir "Precio original del producto: $", precio_original
+    Escribir "Descuento del cupón aplicado: ", porcentaje_descuento_cupon, "%"
+    Escribir "Precio después del descuento del cupón: $", precio_descuento
+    Escribir "IVA aplicado: ", iva, "%"
+    Escribir "Precio después del IVA: $", precio_con_iva
+    Escribir "Descuento por cantidad aplicado: ", porcentaje_descuento_cantidad, "%"
+    Escribir "Precio después del descuento por cantidad: $", precio_descuento_cantidad
+    Escribir "Costo de envío: $", costo_envio
+    Escribir "Costo final del producto: $", costo_final
+    Escribir "¡Gracias por su compra!"
+FinAlgoritmo
